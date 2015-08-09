@@ -15,6 +15,7 @@ function swap($index1, $index2, &$arr){
 
 function selection_sort($arr){
 	$last = count($arr) - 1;
+	$time_start = microtime(true);
 	for($i=0; $i<count($arr)-$i; $i++){
 		$min_idx = $i;
 		$max_idx = $last - $i;
@@ -32,6 +33,9 @@ function selection_sort($arr){
 		}
 		swap($last-$i, $max_idx, $arr); // swap the maximum to the end of the array;
 	}
+	$time_end = microtime(true);
+	$time = $time_end - $time_start;
+	echo "<font color='red'>The sort took: " . $time . " second(s).</font><br>";
 	echo "<b>Sorted Array: <br></b>";
 	var_dump($arr);
 }
